@@ -48,6 +48,24 @@ function pAequorFactory(dna, specimenNum) {
       } else {
         return false;
       }
+    },
+
+    complementStrand() {
+      let complementDNA = [];
+      for(let i = 0; i < this.dna.length; i++) {
+        if(this.dna[i] === 'A') {
+          complementDNA.push('T');
+        } else if( this.dna[i] === 'T') {
+          complementDNA.push('A');
+        } else if( this.dna[i] === 'C') {
+          complementDNA.push('G');
+        } else if ( this.dna[i] === 'G') {
+          complementDNA.push('C');
+        } else {
+          console.log('This Dna has invalid base');
+        }
+      }
+      return complementDNA;
     }
   }
 }
@@ -64,7 +82,7 @@ while(survivingPAqueor.length < 30) {
 
 
 //Testing for Task 3 (Creating the instance of pAequor of test1 and test2)
-//let test = pAequorFactory(mockUpStrand(), 2)
+let test = pAequorFactory(mockUpStrand(), 2)
 //let test2 = pAequorFactory(mockUpStrand(), 4);
 
 //Testing for Task 4
@@ -81,7 +99,11 @@ while(survivingPAqueor.length < 30) {
 //console.log(test.willLikelySurvive());
 
 //Test for Task 7
-console.log(survivingPAqueor);
+//console.log(survivingPAqueor);
+
+//Test for Task 8 (AKA Extra Credit)
+//console.log(test);
+//console.log(test.complementStrand());
 
 
 
